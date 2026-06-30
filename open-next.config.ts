@@ -1,6 +1,4 @@
-import { defineConfig } from "@opennextjs/cloudflare";
-
-export default defineConfig({
+export default {
   next: {
     dir: ".",
   },
@@ -10,4 +8,4 @@ export default defineConfig({
   cache: {
     revalidate: 60,
   },
-});
+};
