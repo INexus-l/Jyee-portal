@@ -120,6 +120,11 @@ const nextConfig: NextConfig = {
   // ========== 允许的开发源（局域网访问） ==========
   allowedDevOrigins: ["192.168.2.26", "localhost"],
 
+  // ========== Cloudflare Pages 兼容配置 ==========
+  // 禁用 Edge 运行时不兼容的功能
+  skipTrailingSlashRedirect: true,
+  skipMiddlewareUrlNormalize: true,
+
   // ========== 实验性功能 ==========
   experimental: {
     // 启用 React 编译器（如果可用）
