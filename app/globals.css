@@ -1,0 +1,284 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/* ============================================================
+   极翼科技门户网站 — 设计系统 Design Tokens
+   风格定位：专业科技感 + 浅蓝主色调
+   色彩体系：浅蓝底(背景) / 科技青(主) / 航拍橙(强调)
+   ============================================================ */
+
+@custom-variant dark (&:is(.dark *));
+
+/* ---------- @theme: Tailwind v4 设计令牌注册 ---------- */
+@theme inline {
+  /* === 字体家族 === */
+  --font-sans: var(--font-noto-sans);
+  --font-serif: var(--font-noto-serif);
+  --font-mono: var(--font-jetbrains-mono);
+  --font-heading: var(--font-inter);
+
+  /* === 极翼品牌色系（浅蓝版）=== */
+  --color-space-blue: #f0f5f9;        /* 浅蓝灰 — 主背景 */
+  --color-space-deep: #e8f1f8;         /* 浅蓝次级背景 */
+  --color-tech-cyan: #0077b6;          /* 科技青(加深) — 主强调色 */
+  --color-aerial-orange: #e65100;      /* 航拍橙(加深) — CTA/行动色 */
+  --color-aerial-orange-light: #f97316;/* 浅航拍橙 */
+  --color-neon-glow: #00b4d8;          /* 霓虹发光色 */
+
+  /* === shadcn/ui 语义色映射 === */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* === 图表/数据可视化色 === */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* === 圆角阶梯 === */
+  --radius-sm: calc(var(--radius) * 0.6);   /* 4px */
+  --radius-md: calc(var(--radius) * 0.8);   /* 5px */
+  --radius-lg: var(--radius);                /* 8px */
+  --radius-xl: calc(var(--radius) * 1.4);    /* 11px */
+  --radius-2xl: calc(var(--radius) * 1.8);   /* 14px */
+  --radius-3xl: calc(var(--radius) * 2.2);   /* 18px */
+  --radius-4xl: calc(var(--radius) * 2.6);   /* 21px */
+
+  /* === Sidebar (保留兼容) === */
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+}
+
+/* ========== 根变量定义：浅蓝主题 ========== */
+:root {
+  /* --- 背景/前景（浅蓝底 + 深色文字）--- */
+  --background: #f0f5f9;
+  --foreground: #1a2744;
+
+  /* --- 卡片/浮层（白色）--- */
+  --card: #ffffff;
+  --card-foreground: #1a2744;
+  --popover: #ffffff;
+  --popover-foreground: #1a2744;
+
+  /* --- 主色 = 科技青 --- */
+  --primary: #0077b6;
+  --primary-foreground: #ffffff;
+
+  /* --- 次要色 --- */
+  --secondary: #e8f1f8;
+  --secondary-foreground: #2c4a6e;
+
+  /* --- 弱化色 --- */
+  --muted: #e8f1f8;
+  --muted-foreground: #557090;
+
+  /* --- 强调色 = 航拍橙 --- */
+  --accent: #e65100;
+  --accent-foreground: #ffffff;
+
+  /* --- 危险/警告 --- */
+  --destructive: #dc2626;
+
+  /* --- 边框/输入 --- */
+  --border: #cce0ed;
+  --input: #cce0ed;
+  --ring: #0077b6;
+
+  /* --- 图表色 --- */
+  --chart-1: #0077b6;
+  --chart-2: #e65100;
+  --chart-3: #00b4d8;
+  --chart-4: #48cae4;
+  --chart-5: #fb8500;
+
+  /* --- 圆角基准值 --- */
+  --radius: 0.75rem;
+
+  /* === Sidebar === */
+  --sidebar: #ffffff;
+  --sidebar-foreground: #1a2744;
+  --sidebar-primary: #0077b6;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: rgba(0, 119, 182, 0.08);
+  --sidebar-accent-foreground: #1a2744;
+  --sidebar-border: #cce0ed;
+  --sidebar-ring: #0077b6;
+
+  /* === 极翼品牌渐变（适配浅色）=== */
+  --gradient-primary: linear-gradient(135deg, #0077b6 0%, #0096c7 100%);
+  --gradient-cta: linear-gradient(135deg, #e65100 0%, #f77f00 100%);
+  --gradient-hero: radial-gradient(ellipse at 20% 50%, rgba(0,119,182,0.06) 0%, transparent 50%),
+                 radial-gradient(ellipse at 80% 20%, rgba(230,81,0,0.04) 0%, transparent 50%);
+  --gradient-card: linear-gradient(135deg, rgba(0,119,182,0.03) 0%, rgba(230,81,0,0.02) 100%);
+  --gradient-glow: linear-gradient(135deg, rgba(0,119,182,0.15), rgba(72,202,228,0.05));
+}
+
+/* ============================================================
+   @layer base — 全局基础样式
+   ============================================================ */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: rgba(0, 119, 182, 0.2);
+    color: #0f172a;
+  }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(148,163,184,0.35); border-radius: 9999px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(148,163,184,0.55); }
+}
+
+/* ============================================================
+   @layer components — 复用组件模式（浅色适配）
+   ============================================================ */
+@layer components {
+  .glass-card {
+    @apply relative overflow-hidden rounded-xl border bg-white shadow-sm;
+    border-color: #e2e8f0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .glass-card:hover {
+    border-color: rgba(0,119,182,0.25);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08), 0 2px 8px rgba(0,119,182,0.06);
+    transform: translateY(-2px);
+  }
+
+  .glow-border {
+    position: relative;
+  }
+  .glow-border::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(0,119,182,0.3), transparent 50%, rgba(230,81,0,0.15));
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .glow-border:hover::before { opacity: 1; }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-primary);
+  }
+  .gradient-text-warm {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-cta);
+  }
+
+  .viewfinder-corners {
+    position: relative;
+  }
+  .viewfinder-corners::before,
+  .viewfinder-corners::after {
+    content: '';
+    position: absolute;
+    width: 20px; height: 20px;
+    border-color: rgba(0,119,182,0.4);
+    border-style: solid;
+    pointer-events: none;
+  }
+  .viewfinder-corners::before { top: 8px; left: 8px; border-width: 2px 0 0 2px; }
+  .viewfinder-corners::after { bottom: 8px; right: 8px; border-width: 0 2px 2px 0; }
+
+  .noise-overlay { position: relative; }
+  .noise-overlay::after {
+    content: '';
+    position: absolute; inset: 0;
+    opacity: 0.02;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    pointer-events: none; z-index: 1;
+  }
+
+  .section-container {
+    @apply mx-auto w-full max-w-[1400px] px-4 sm:px-6 lg:px-10 xl:px-16;
+  }
+
+  .overline-label {
+    @apply inline-block text-xs font-semibold uppercase tracking-[0.2em] text-[#0077b6]/70;
+  }
+}
+
+/* ============================================================
+   @layer utilities — 自定义工具类
+   ============================================================ */
+@layer utilities {
+  .safe-bottom { padding-bottom: env(safe-area-inset-bottom, 0px); }
+
+  .text-shadow-glow {
+    text-shadow: 0 0 20px rgba(0,119,182,0.2), 0 0 48px rgba(0,119,182,0.06);
+  }
+
+  .animate-pulse-glow { animation: pulseGlow 3s ease-in-out infinite; }
+  @keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 12px rgba(0,119,182,0.04); }
+    50% { box-shadow: 0 0 28px rgba(0,119,182,0.10), 0 0 48px rgba(0,119,182,0.04); }
+  }
+
+  .animate-fade-up { animation: fadeUp 0.6s ease-out both; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+  .animate-draw-line { stroke-dasharray: 200; stroke-dashoffset: 200; animation: drawLine 1.5s ease forwards; }
+  @keyframes drawLine { to { stroke-dashoffset: 0; } }
+
+  /* ====== 服务页轮播动画 ====== */
+  .animate-scroll-left { animation: scrollLeft 25s linear infinite; }
+  .animate-scroll-left:hover { animation-play-state: paused; }
+  @keyframes scrollLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ====== 流程连接线脉冲 ====== */
+  .animate-pulse-slow { animation: pulseSlow 3s ease-in-out infinite; }
+  @keyframes pulseSlow {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+}
