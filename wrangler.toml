@@ -1,0 +1,8 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "jyee-portal"
+compatibility_date = "2024-10-25"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = ".open-next"
+
+[vars]
+NEXT_USE_NODEJS_WORKER = "1"
