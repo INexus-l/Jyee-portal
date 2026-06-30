@@ -1,11 +1,8 @@
 export default {
-  next: {
-    dir: ".",
-  },
-  workers: {
-    nodejsCompat: true,
-  },
-  cache: {
-    revalidate: 60,
+  default: {
+    override: {
+      wrapper: "cloudflare-node",
+      converter: "edge",
+    },
   },
 };
